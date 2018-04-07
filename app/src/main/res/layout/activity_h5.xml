@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wxy.xiaoxiao.ui.MainActivity">
+    <com.wxy.xiaoxiao.utils.TitleBar
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:background_color="@color/color1"
+        app:leftButton_size="20dp"
+        app:rightButton_size="23dp"
+        app:title_textColor="@color/white"
+        app:title_textSize="18sp"
+        app:left_img="@mipmap/last"
+        app:text_content="三分11选5" />
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

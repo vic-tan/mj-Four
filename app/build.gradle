@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        minSdkVersion 19
+        ndk {
+            ldLibs "log", "z", "m"
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi','x86'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:26.1.0'
+    compile 'org.xutils:xutils:3.5.0'
+    compile 'com.alibaba:fastjson:1.2.10'
+    compile 'com.jakewharton:butterknife:8.8.0'
+    implementation files('libs/javabase64-1.3.1.jar')
+    implementation files('libs/jpush-android-2.1.8.jar')
+    implementation files('libs/zxing.jar')
+    implementation files('libs/bugly_crash_release.jar')
+    implementation files('libs/bugly_agent.jar')
+    implementation files('libs/android-mastersdk-1.16.jar')
+    implementation files('libs/android-async-http-1.4.8.jar')
+}
